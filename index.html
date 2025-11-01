@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชื่อหน้าเว็บของคุณ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="top-tabs" role="navigation" aria-label="Main tabs">
+        <ul>
+            <li><a href="#about" class="tab-link active">About</a></li>
+            <li><a href="#experience" class="tab-link">Experience</a></li>
+            <li><a href="#projects" class="tab-link">Projects</a></li>
+            <li><a href="#contact" class="tab-link">Contact</a></li>
+            <li><a href="https://www.pim.ac.th/" class="tab-link external-btn" target="_blank" rel="noopener noreferrer">about institute</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <div class="paper">
+                <img src="ME.jpg" alt="รูปโปรไฟล์" class="circle-img">
+                <h1>Anuwat Lusatjawattana</h1>
+                 <table>
+                    <tr>
+                        <th colspan="2">Personal Information</th>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td>Anuwat Lusatjawattana</td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>Institute:</td>
+                        <td>Panyapiwat</td>
+                    </tr>
+                     <tr>
+                        <td>Major:</td>
+                        <td>Computer Engineering and Artificial Intelligence</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>Skill</th>
+                    </tr>
+                    <tr>
+                        <td>HTML ⭐ | Java ⭐⭐⭐ | Python ⭐⭐ | CSS ⭐ | SQL ⭐⭐⭐</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>Self-Introduction</th>
+                    </tr>
+                    <tr>
+                        <td>my name is Anuwat Lusatjawattana. I am 22 years old and currently studying Computer Engineering and Artificial Intelligence at Panyapiwat Institute of Management. I have a passion for coding and technology, and I am eager to learn and grow in the field of software development. and i have some graphics skill such as premiere pro and photoshop</td>   
+                    
+                </table>
+            </div>
+        </section>
+
+        <section id="experience" class="panel">
+            <div class="paper">
+                <h2>Experience</h2>
+                <img src="food.jpg" alt="food passion" class="circle-img1">
+                <p>"I had the opportunity to intern at Food Passion Company in the position of DTD . My responsibilities included managing the Disposition Warehouse. My key duties involved inspecting equipment returned from various branches to determine whether they should be disposed of/scrapped or sent for repair. I was also responsible for organizing the inventory within the Disposition Warehouse to ensure efficient retrieval of equipment and supplies."</p>
+            </div>
+        </section>
+
+        <section id="projects" class="panel">
+            <div class="paper3">
+                <h2>Projects</h2>
+                <img src="py.jpg" alt="Python" class="circle-img2">
+                <p><strong>Video game sale Analysis (python)</strong></p>
+                <p>Cleaned and visualized data using Google Colab to analyze video game sales, identifying trends and market shifts across regions.</p>
+                <img src="Java.png" alt="Java" class="circle-img2">
+                <p><strong>java GUI Storage book (Java)</strong></p>
+                <p>Designed a GUI for maintaining book records, capturing information on title, author, and price.</p>
+                <img src="brain.jpg" alt="Design thinking" class="circle-img2">
+                <p><strong>Design thinking</strong></p>
+                <p>mproved 7Delivery app by proposing real-time delay notifications and optimized scheduling to reduce uncertainty and enhance service efficiency</p>
+            </div>
+        </section>
+
+        <section id="contact" class="panel">
+            <div class="paper1">
+                <h2>Contact</h2>
+                <p>Email: anuwat.lus@gmail.com<br>Phone: 06-4142-2516<br>Address: province Nonthaburi 117/2 Moo 6 Bang Bua Thong District <br>Facebook: อนุวัฒน์ ลู่สัจวัฒนา</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+    (function(){
+        const links = document.querySelectorAll('.tab-link');
+
+        links.forEach(function(link){
+            link.addEventListener('click', function(e){
+                const href = this.getAttribute('href') || '';
+                if(href.startsWith('#')){
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if(!target) return;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+                }
+            });
+        });
+
+        const sections = document.querySelectorAll('main section');
+        function onScroll(){
+            let index = sections.length - 1;
+            for(let i=0;i<sections.length;i++){
+                const rect = sections[i].getBoundingClientRect();
+                if(rect.top <= 80) index = i;
+            }
+            links.forEach(l => l.classList.remove('active'));
+            if(links[index]) links[index].classList.add('active');
+        }
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+    })();
+    </script>
+</body>
+</html>
